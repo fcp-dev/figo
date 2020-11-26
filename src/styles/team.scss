@@ -1,0 +1,82 @@
+.group-name-heading {
+  margin-top: 15px;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.image {
+  height: 400px;
+  &:hover {
+    z-index: 1;
+    .image-backdrop {
+      opacity: 0.4 !important;
+    }
+    .image-title {
+      border: 4px solid currentColor !important;
+    }
+  }
+  &:first-child {
+    width: 100%;
+  }
+  &:nth-child(2) {
+    width: 50%;
+  }
+  &:nth-child(3) {
+    width: 50%;
+  }
+}
+
+.image-backdrop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  position: absolute;
+  background-color: #000;
+}
+
+.image-button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.image-source {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center 40%;
+}
+
+.image-title {
+  padding: 16px 32px 14px;
+  position: relative;
+  &:hover {
+    border: 4px solid currentColor;
+  }
+}
+
+.team-member-item {
+  margin-bottom: 30px;
+  border: 1px solid #d9d9d9;
+}
+
+.team-member-name {
+  text-align: center;
+}
+
+.team-overview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
