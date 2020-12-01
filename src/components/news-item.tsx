@@ -1,29 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby-plugin-react-i18next';
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography
-} from '@material-ui/core';
+import { Card, CardActionArea, CardContent, Typography } from '@material-ui/core';
 import moment from 'moment';
 import '../styles/news.scss';
 
 type NewsItemProps = {
-  id: number,
   title: string,
   date: Date,
-  imagePath: string | null,
+  link: string
 }
 
-export default function NewsItem({id, title, date, imagePath}: NewsItemProps) {
+export default function NewsItem({ title, date, link }: NewsItemProps) {
   return(
     <div className="card">
-      <Link to={`/news/${id}`}>
+      <Link to={link}>
         <Card variant="outlined">
           <CardActionArea>
-            {imagePath ? <CardMedia className="card-media" image={imagePath}/> : ''}
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 {moment(date).format('DD.MM.YYYY')}

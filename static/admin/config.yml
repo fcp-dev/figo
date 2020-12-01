@@ -1,0 +1,137 @@
+backend:
+  name: github
+  repo: fcp-dev/figo
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - 
+    name: news-de
+    label: News (deutsch)
+    folder: content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}"
+    extension: "de.md"
+    format: frontmatter
+    identifier_field: slug
+    fields:
+      - 
+        name: date
+        label: Date
+        required: true
+        widget: date
+      - 
+        name: title
+        label: Title
+        required: true
+        widget: string
+      - 
+        name: body
+        label: Body
+        required: true
+        widget: markdown
+  - 
+    name: news-pt
+    label: News (português)
+    folder: content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}"
+    extension: "pt.md"
+    format: frontmatter
+    identifier_field: slug
+    fields:
+      - 
+        name: date
+        label: Date
+        required: true
+        widget: date
+      - 
+        name: title
+        label: Title
+        required: true
+        widget: string
+      - 
+        name: body
+        label: Body
+        required: true
+        widget: markdown
+  - 
+    name: firstTeamMember
+    label: First Team Member
+    folder: "content/teams/{{teamId}}"
+    create: true
+    slug: "{{id}}"
+    editor:
+      preview: false
+    fields:
+      - 
+        name: id
+        label: ID
+        required: true
+        widget: ncw-id
+      -
+        name: teamId
+        label: Team
+        required: true
+        widget: hidden
+        default: 1
+      - 
+        name: firstName 
+        label: First Name
+        required: true
+        widget: string
+      - 
+        name: lastName 
+        label: Last Name
+        required: true
+        widget: string
+      - 
+        name: position
+        label: Position
+        required: true
+        widget: select
+        options: ["goalkeeper", "defender", "midfielder", "forward", "manager"]
+      - 
+        name: image
+        label: Image 
+        widget: image
+        default: "/img/default.png"
+  - 
+    name: secondTeamMember
+    label: Second Team Member
+    folder: "content/teams/{{teamId}}"
+    create: true
+    slug: "{{id}}"
+    editor:
+      preview: false
+    fields:
+      - 
+        name: id
+        label: ID
+        widget: ncw-id
+      -
+        name: teamId
+        label: Team
+        required: true
+        widget: hidden
+        default: 2
+      - 
+        name: firstName 
+        label: First Name
+        widget: string
+      - 
+        name: lastName 
+        label: Last Name
+        widget: string
+      - 
+        name: position
+        label: Position
+        required: true
+        widget: select
+        options: ["goalkeeper", "defender", "midfielder", "forward", "manager"]
+      - 
+        name: image
+        label: Image 
+        widget: image
+        default: "/img/default.png"

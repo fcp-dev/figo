@@ -1,5 +1,5 @@
-import { Box } from '@material-ui/core';
 import React from 'react';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 
 type TeamMemberItemProps = {
   firstName: string,
@@ -9,13 +9,13 @@ type TeamMemberItemProps = {
 
 export default function TeamMemberItem({firstName, lastName, imagePath}: TeamMemberItemProps) {
   return(
-    <div>
-      <div className="team-member-item">
-        <img src={imagePath}/>
-        <div className="team-member-name">
-          <Box fontWeight="fontWeightBold">{firstName} {lastName}</Box>
-        </div>       
-      </div>
-    </div> 
+    <Card className="team-member-item" variant="outlined">
+      <CardMedia className="team-member-image" image={imagePath}/>
+      <CardContent className="team-member-name">
+        <Typography variant="body2" component="p">
+          {firstName} {lastName}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }

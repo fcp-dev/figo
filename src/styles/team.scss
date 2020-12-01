@@ -6,6 +6,7 @@
 
 .image {
   height: 400px;
+  width: 100%;
   &:hover {
     z-index: 1;
     .image-backdrop {
@@ -14,15 +15,6 @@
     .image-title {
       border: 4px solid currentColor !important;
     }
-  }
-  &:first-child {
-    width: 100%;
-  }
-  &:nth-child(2) {
-    width: 50%;
-  }
-  &:nth-child(3) {
-    width: 50%;
   }
 }
 
@@ -66,9 +58,12 @@
   }
 }
 
+.team-member-image {
+  height: 215px;
+}
+
 .team-member-item {
-  margin-bottom: 30px;
-  border: 1px solid #d9d9d9;
+  width: 215px;
 }
 
 .team-member-name {

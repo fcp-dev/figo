@@ -4,22 +4,23 @@ import { ButtonBase, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 import '../styles/team.scss';
 
-const teams = [
+interface ITeam {
+  id: number,
+  imagePath: string,
+  title: string
+}
+
+const teams: Array<ITeam> = [
   {
     id: 1,
-    imagePath: '/teams/first/first.jpg',
+    imagePath: '/img/firstTeam.jpg',
     title: 'firstTeam'
   },
   {
     id: 2,
-    imagePath: '/teams/second/second.jpg',
+    imagePath: '/img/secondTeam.jpg',
     title: 'secondTeam'
-  },
-  {
-    id: 3,
-    imagePath: '/teams/legends/legends.jpg',
-    title: 'legends'
-  },
+  }
 ];
 
 export default function TeamOverviewPage() {
