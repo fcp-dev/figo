@@ -4,5 +4,5 @@ teamId: 2
 firstName: Guido
 lastName: Callura
 position: defender
-image: img/teams/2/callura_guido.jpeg
+image: /img/teams/2/callura_guido.jpeg
 ---

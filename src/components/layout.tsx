@@ -1,10 +1,12 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import MobileHeader from './mobile-header';
+import { isMobile } from '../utils/helper';
 import '../styles/layout.scss';
 
 interface LayoutProps {
@@ -12,7 +14,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
   let theme = createMuiTheme();
   theme = responsiveFontSizes(theme);
@@ -24,9 +26,11 @@ export default function Layout({ children }: LayoutProps) {
       </Helmet>
       <ThemeProvider theme={theme}>
         <div className="page-container">
-          <Header/>
+          {isMobile() ?  <MobileHeader/> : <Header/>}
             <main className="content-wrap">
-              {children}
+              <div className={isMobile() ? 'content-mobile' : 'content'}>
+                {children}
+              </div>
             </main>
           <Footer/>
         </div>

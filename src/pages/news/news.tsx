@@ -19,10 +19,8 @@ export default function NewsPage({ data }: NewsPageProps) {
 
   return(
     <Layout>
-      <div className="utils-width-80">
-        <Typography variant="h2">{news.frontmatter.title}</Typography>
-        <section dangerouslySetInnerHTML={{ __html: news.html }}/>
-      </div>
+      <Typography variant="h2">{news.frontmatter.title}</Typography>
+      <section dangerouslySetInnerHTML={{ __html: news.html }}/>
     </Layout>
   );
 }

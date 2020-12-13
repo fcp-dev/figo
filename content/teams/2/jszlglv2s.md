@@ -4,5 +4,5 @@ teamId: 2
 firstName: Severin
 lastName: Stöckl
 position: midfielder
-image: img/teams/2/stoeckl_severin.jpeg
+image: /img/teams/2/stoeckl_severin.jpeg
 ---

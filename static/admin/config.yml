@@ -60,7 +60,7 @@ collections:
     name: firstTeamMember
     label: First Team Member
     folder: content/teams/1
-    media_folder: ../../../static/img/teams/1
+    media_folder: /../../../static/img/teams/1
     create: true
     slug: "{{id}}"
     editor:
@@ -102,7 +102,7 @@ collections:
     name: secondTeamMember
     label: Second Team Member
     folder: content/teams/2
-    media_folder: ../../../static/img/teams/2
+    media_folder: /../../../static//img/teams/2
     create: true
     slug: "{{id}}"
     editor:

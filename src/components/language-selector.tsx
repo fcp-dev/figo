@@ -1,5 +1,5 @@
-import React from "react";
-import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
+import React from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import LanguageIcon from '@material-ui/icons/Language';
 
@@ -14,11 +14,9 @@ export default function LanguageSelector() {
     setAnchorEl(null);
   };
 
-  const { changeLanguage } = useI18next();
+  const { language, changeLanguage } = useI18next();
 
-  const { i18n } = useTranslation();
-
-  const selectedLanguage: string = i18n.language || 'de';
+  const selectedLanguage: string = language || 'de';
 
   return (
     <div>

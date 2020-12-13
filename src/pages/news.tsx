@@ -9,7 +9,7 @@ interface INode {
     slug: string
   },
   frontmatter: {
-    date: Date,
+    date: string,
     slug: string,
     title: string
   }
@@ -28,15 +28,13 @@ export default function NewsOverviewPage({ data }: NewsOverviewPageProps) {
 
   return (
     <Layout>
-      <div className="utils-width-80">
-        <Grid container>
-          {newsList.map(news => (
-            <Grid item xs={12}>
-              <NewsItem title={news.frontmatter.title} date={news.frontmatter.date} link={news.fields.slug}/>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+      <Grid container>
+        {newsList.map((news, index) => (
+          <Grid item xs={12} key={index}>
+            <NewsItem title={news.frontmatter.title} date={news.frontmatter.date} link={news.fields.slug}/>
+          </Grid>
+        ))}
+      </Grid>
     </Layout>
   );
 }
@@ -53,7 +51,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date
+          date(formatString: "DD.MM.YYYY")
           title
         }
       }

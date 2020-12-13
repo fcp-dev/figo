@@ -26,6 +26,7 @@
   opacity: 0.7;
   position: absolute;
   background-color: #000;
+  border-radius: 10px;
 }
 
 .image-button {
@@ -48,6 +49,7 @@
   bottom: 0;
   background-size: cover;
   background-position: center 40%;
+  border-radius: 10px;
 }
 
 .image-title {
@@ -58,8 +60,13 @@
   }
 }
 
-.team-member-image {
+.team-member-image-container {
   height: 215px;
+  overflow: hidden;
+}
+
+.team-member-image {
+  width: 100%;
 }
 
 .team-member-item {
@@ -68,6 +75,7 @@
 
 .team-member-name {
   text-align: center;
+  height: 60px;
 }
 
 .team-overview {

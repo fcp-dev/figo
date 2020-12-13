@@ -4,5 +4,5 @@ teamId: 1
 firstName: José
 lastName: Valcuende
 position: manager
-image: /img/teams/1/default.png
+image: /img/default.png
 ---

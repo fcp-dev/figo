@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
-import { ButtonBase, Typography } from '@material-ui/core';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { ButtonBase, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 import '../styles/team.scss';
 
@@ -24,25 +24,27 @@ const teams: Array<ITeam> = [
 ];
 
 export default function TeamOverviewPage() {
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
   return (
     <Layout>
-      <div className="team-overview">
-        {teams.map((team) => (
-          <ButtonBase key={team.title} className="image">
+      <Grid container direction="row" spacing={3}>
+        {teams.map((team, index) => (
+          <Grid item xs={12} md={6} key={index}>
             <Link to={`/teams/${team.id}`}>
-              <span className="image-source" style={{backgroundImage: `url(${team.imagePath})`}}/>
-              <span className="image-backdrop"/>
-              <span className="image-button">
-                <Typography component="span" variant="subtitle1" color="inherit" className="image-title">
-                  {t(team.title)}
-                </Typography>
-              </span>
+              <ButtonBase key={team.title} className="image">
+                <span className="image-source" style={{backgroundImage: `url(${team.imagePath})`}}/>
+                <span className="image-backdrop"/>
+                <span className="image-button">
+                  <Typography component="span" variant="subtitle1" color="inherit" className="image-title">
+                    {t(team.title)}
+                  </Typography>
+                </span>
+              </ButtonBase> 
             </Link>
-          </ButtonBase>
-      ))}
-      </div>
+          </Grid>
+        ))}
+      </Grid>
     </Layout>
   );
 }

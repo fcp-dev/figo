@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { Avatar } from '@material-ui/core';
 import Facebook from '@material-ui/icons/Facebook';
 import Instagram from '@material-ui/icons/Instagram';
+import { isMobile } from '../utils/helper';
 import '../styles/footer.scss'
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
   return (
     <footer className="footer">
@@ -31,17 +32,19 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-menu">
-        <nav className="footer-menu-links">
-          <ul>
-            <li>
-              <Link to="/legal-notice">{t("legalNotice")}</Link>
-            </li>
-            <li>
-              <Link to="/contact">{t("contact")}</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="footer-menu-copyright">
+        {isMobile() === false && 
+          <nav className="footer-menu-links">
+            <ul>
+              <li>
+                <Link to="/legal-notice">{t("legalNotice")}</Link>
+              </li>
+              <li>
+                <Link to="/contact">{t("contact")}</Link>
+              </li>
+            </ul>
+          </nav>
+        }
+        <div className={`footer-menu-copyright ${isMobile() ? 'utils-float-left' : 'utils-float-right'}`}>
           &copy;{new Date().getFullYear()} {t("fullClubName")} 
         </div>
       </div>

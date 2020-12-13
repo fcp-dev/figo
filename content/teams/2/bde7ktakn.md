@@ -4,5 +4,5 @@ teamId: 2
 firstName: Björn
 lastName: Sitterle
 position: midfielder
-image: img/teams/2/sitterle_bjoern.jpeg
+image: /img/teams/2/sitterle_bjoern.jpeg
 ---

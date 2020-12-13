@@ -4,5 +4,5 @@ teamId: 2
 firstName: Kevin
 lastName: Boy
 position: defender
-image: /img/boy_kevin.jpeg
+image: /img/teams/2/boy_kevin.jpeg
 ---

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Paper, Typography } from '@material-ui/core';
 import {
   Timeline,
@@ -14,16 +14,21 @@ import Layout from '../components/layout';
 import '../styles/club.scss';
 
 export default function ClubPage() {
-  const { t } = useTranslation();
+  const { t } = useI18next();
+
+  const timeLineItems = [
+    {year: 1980, title: "Gründung", text: "t.b.d"},
+    {year: 1983, title: "Zweites Ereignis", text: "t.b.d"},
+  ];
 
   return (
     <Layout>
-      <div className="utils-width-80">
-        <Timeline align="alternate">
-          <TimelineItem>
+      <Timeline align="alternate">
+        {timeLineItems.map((timeLineItem, index) => (
+          <TimelineItem key={index}>
             <TimelineOppositeContent>
               <Typography variant="body2" color="textSecondary">
-                1980
+                {timeLineItem.year}
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
@@ -33,33 +38,14 @@ export default function ClubPage() {
             <TimelineContent>
               <Paper elevation={3} className="paper">
                 <Typography variant="h6" component="h1">
-                  Gründung
+                  {t(timeLineItem.title)}
                 </Typography>
-                <Typography>Text</Typography>
+                <Typography>{t(timeLineItem.text)}</Typography>
               </Paper>
             </TimelineContent>
           </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>
-              <Typography variant="body2" color="textSecondary">
-                1983
-              </Typography>
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot/>
-              <TimelineConnector/>
-            </TimelineSeparator>
-            <TimelineContent>
-              <Paper elevation={3} className="paper">
-                <Typography variant="h6" component="h1">
-                  Nächstes Ereignis
-                </Typography>
-                <Typography>Text</Typography>
-              </Paper>
-            </TimelineContent>
-          </TimelineItem>
-        </Timeline>
-      </div>
+        ))}
+      </Timeline>
     </Layout>
   );
 }

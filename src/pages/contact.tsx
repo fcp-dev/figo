@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Box, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 
@@ -86,24 +86,25 @@ const contactGroups: contactGroups = {
 
 
 export default function ContactPage() {
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
+  let key = 0;
   const contactList = [];
   for (const [groupName, contacts] of Object.entries(contactGroups)) {
     contactList.push(
-      <div>
-        <Typography component="p">
+      <div key={key}>
+        <div>
           <Box fontWeight="fontWeightBold">{t(groupName)}</Box>
-          <div className="utils-margin-bottom-10"></div>
-        </Typography>
-        {contacts.map((contact) =>  {
+        </div>
+        <div className="utils-margin-bottom-10"></div>
+        {contacts.map((contact, index) =>  {
           if (contact.phoneNumber === undefined) {
-            return <div className="utils-margin-bottom-20">
+            return <div className="utils-margin-bottom-20" key={index}>
               <Typography component="p">{contact.firstName} {contact.lastName}</Typography>
               <Typography component="p">{t("email")}: {contact.email}</Typography>
             </div>
           }
-          return <div className="utils-margin-bottom-20">
+          return <div className="utils-margin-bottom-20" key={index}>
             <Typography component="p">{contact.firstName} {contact.lastName}</Typography>
             <Typography component="p">{t("shortcutPhoneNumber")}.: {contact.phoneNumber}</Typography>
             <Typography component="p">{t("email")}: {contact.email}</Typography>
@@ -111,15 +112,14 @@ export default function ContactPage() {
         })}
       </div>
     );
+    key++;
   }
 
   return (
     <Layout>
-      <div className="utils-width-80">
-        <Typography variant="h2">{t("contactUs")}</Typography>
-        <div className="utils-margin-bottom-30"></div>
-        {contactList}
-      </div>
+      <Typography variant="h2">{t("contactUs")}</Typography>
+      <div className="utils-margin-bottom-30"></div>
+      {contactList}
     </Layout>
   );
 }

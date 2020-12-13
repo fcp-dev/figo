@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Grid, Typography } from '@material-ui/core';
 import Layout from '../../components/layout';
 import TeamMember from '../../components/team-member-item';
@@ -26,7 +26,7 @@ type TeamPageProps = {
 };
 
 export default function TeamPage({ data }: TeamPageProps) {
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
   const teamMembers= {
     goalkeepers: [] as Array<ITeamMember>,
@@ -36,7 +36,6 @@ export default function TeamPage({ data }: TeamPageProps) {
     managers: [] as Array<ITeamMember>
   };
   for (let teamMember of data.allMarkdownRemark.nodes) {
-    console.log(teamMember);
     switch (teamMember.frontmatter.position) {
       case 'goalkeeper':
         teamMembers.goalkeepers.push(teamMember.frontmatter);
@@ -58,29 +57,29 @@ export default function TeamPage({ data }: TeamPageProps) {
     } 
   }
 
+  let key = 0;
   const memberList = [];
   for (const [groupName, members] of Object.entries(teamMembers)) {
     memberList.push(
-      <div>
+      <div key={key}>
         <Typography variant="h2" className="group-name-heading">{t(groupName).toUpperCase()}</Typography>
         <div className="utils-margin-bottom-20"></div>
         <Grid container spacing={2}>
-          {members.map((member) => 
-            <Grid item>
+          {members.map((member, index) => 
+            <Grid item key={index}>
               <TeamMember firstName={member.firstName} lastName={member.lastName} imagePath={member.image}/>
             </Grid>
           )}
         </Grid>
       </div>
     );
+    key++;
   }
 
  
   return (
     <Layout>
-      <div className="utils-width-80">
-        {memberList}
-      </div>
+      {memberList}
     </Layout>
   );
 }

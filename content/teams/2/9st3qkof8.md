@@ -4,5 +4,5 @@ teamId: 2
 firstName: Kevin
 lastName: Reuschling
 position: defender
-image: img/teams/2/reuschling_kevin.jpeg
+image: /img/teams/2/reuschling_kevin.jpeg
 ---

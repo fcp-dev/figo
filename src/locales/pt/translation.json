@@ -25,5 +25,10 @@
   "midfielders": "Mittelfeld",
   "forwards": "Angriff",
   "managers": "Trainer",
-  "gettingHere": "Anfahrt zum Stadion"
+  "gettingHere": "Anfahrt zum Stadion",
+  "pageNotFoundTitle": "Seite nicht gefunden",
+  "pageNotFoundText": "Ups, wir konnten diese Seite nicht finden!",
+  "sportsFacility": "Sportanlage",
+  "publicTransportProvider": "ÖPNV",
+  "publicTransportProviderText": "t.b.d"
 }
