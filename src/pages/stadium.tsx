@@ -21,23 +21,23 @@ export default function StadiumPage() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Tooltip className="map-tooltip" permanent opacity={1}>
-            <Typography component="p">{t("sportsFacility")}</Typography>
-            <Typography component="p">Hermann-Mitsch-Straße 38</Typography>
-            <Typography component="p">79108 Freiburg im Breisgau</Typography>
-          </Tooltip>
-        </Marker>
+        <Marker position={position}/>
       </MapContainer>
       <div className="utils-margin-bottom-30"></div>
       <div>
         <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Box fontWeight="fontWeightBold">{t("address")}</Box>
+            <Typography component="p">{t("sportsFacility")}</Typography>
+            <Typography component="p">Hermann-Mitsch-Straße 38</Typography>
+            <Typography component="p">79108 Freiburg im Breisgau</Typography>
+          </Grid>
           <Grid item xs={12} md={6}>
-            <Box fontWeight="fontWeightBold">{t("publicTransportProvider")}:</Box>
+            <Box fontWeight="fontWeightBold">{t("publicTransportProvider")}</Box>
             <Typography component="p">{t("publicTransportProviderText")}</Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box fontWeight="fontWeightBold">{t("car")}:</Box>
+            <Box fontWeight="fontWeightBold">{t("car")}</Box>
             <Typography component="p">{t("carText")}</Typography>
           </Grid>
         </Grid>

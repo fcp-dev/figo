@@ -30,5 +30,8 @@
   "pageNotFoundText": "Ups, wir konnten diese Seite nicht finden!",
   "sportsFacility": "Sportanlage",
   "publicTransportProvider": "ÖPNV",
-  "publicTransportProviderText": "t.b.d"
+  "publicTransportProviderText": "t.b.d",
+  "car": "Auto",
+  "carText": "t.b.d",
+  "address": "Adresse"
 }

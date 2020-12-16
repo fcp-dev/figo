@@ -32,5 +32,6 @@
   "publicTransportProvider": "ÖPNV",
   "publicTransportProviderText": "t.b.d",
   "car": "Auto",
-  "carText": "t.b.d"
+  "carText": "t.b.d",
+  "address": "Adresse"
 }

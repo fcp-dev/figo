@@ -11,6 +11,7 @@ import {
   TimelineDot
 } from '@material-ui/lab';
 import Layout from '../components/layout';
+import { isMobile } from '../utils/helper';
 import '../styles/club.scss';
 
 export default function ClubPage() {
@@ -23,10 +24,10 @@ export default function ClubPage() {
 
   return (
     <Layout>
-      <Timeline align="alternate">
+      <Timeline align={isMobile() ? 'left' : 'alternate'}>
         {timeLineItems.map((timeLineItem, index) => (
           <TimelineItem key={index}>
-            <TimelineOppositeContent>
+            <TimelineOppositeContent className={isMobile() ? 'timeline-year' : ''}>
               <Typography variant="body2" color="textSecondary">
                 {timeLineItem.year}
               </Typography>

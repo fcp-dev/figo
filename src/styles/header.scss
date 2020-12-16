@@ -11,6 +11,10 @@
   justify-content: flex-end;
 }
 
+.drawer-list-container {
+  width: 250px;
+}
+
 .header {
   display: flex;
   width: 100%;
@@ -22,6 +26,11 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
+.header-divider {
+  width: 100px;
+  background:linear-gradient(45deg,#fff 49%, #c70101 51%);
+}
+
 .header-language-selector {
   text-align: right;
   padding-top: 20px;
@@ -29,11 +38,19 @@
 }
 
 .header-logo {
-  padding: 10px 0 0 40px;
+  text-align: center;
+  background: #fff;
+  width: 80px;
+  img {
+    padding-left: 20px;
+    padding-top: 8px;
+    vertical-align: middle;
+  }
 }
 
 .header-logo-mobile {
   padding: 10px;
+  background: #fff;
 }
 
 .header-menu-button-mobile {
@@ -46,6 +63,7 @@
   ul {
     display: inline-block;
     list-style: none;
+    padding-inline-start: 0px;
 
     li {
       display: table-cell;

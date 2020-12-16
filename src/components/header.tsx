@@ -9,28 +9,27 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <Link to="/news">
+        <Link to="/news" className="utils-align-center">
           <img src="/img/logos/37x60.png"/>
         </Link>
       </div>
-      <nav className="header-nav-menu">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/news" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("news")}</Link>
-              </li>
-              <li>
-                <Link to="/teams" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("teams")}</Link>
-              </li>
-              <li>
-                <Link to="/club" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("club")}</Link>
-              </li>
-              <li>
-                <Link to="/stadium" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("stadium")}</Link>
-              </li>
-            </ul>
-          </nav>
-      </nav>
+      <div className="header-divider"></div>
+      <div className="header-nav-menu">
+          <ul>
+            <li>
+              <Link to="/news" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("news")}</Link>
+            </li>
+            <li>
+              <Link to="/teams" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("teams")}</Link>
+            </li>
+            <li>
+              <Link to="/club" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("club")}</Link>
+            </li>
+            <li>
+              <Link to="/stadium" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("stadium")}</Link>
+            </li>
+          </ul>
+      </div>
       <div className="header-language-selector">
         <LanguageSelector/>
       </div>

@@ -1,19 +1,10 @@
-import React from 'react';
+import React, { KeyboardEvent, MouseEvent } from 'react';
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
-import { Divider, Drawer, IconButton, List, ListItem, ListItemText, Paper } from '@material-ui/core';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Divider, IconButton, List, ListItem, ListItemText, SwipeableDrawer } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
 import LanguageSelector from './language-selector';
 import '../styles/header.scss';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    drawerPaper: {
-      width: '100%',
-    }
-  }),
-);
 
 interface IListItem {
   path: string,
@@ -32,20 +23,27 @@ const listItems: Array<IListItem> = [
 export default function Header() {
   const { t } = useI18next();
 
-  const classes = useStyles();
-
   const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (isOpen: boolean) => (event: KeyboardEvent | MouseEvent) => {
+    if (event && event.type === 'keydown') {
+      if (event instanceof KeyboardEvent && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+    }
+    setOpen(isOpen);
+  };
 
   return (
     <div>
       <header className="header">
         <div className="header-logo-mobile">
-          <Link to="/">
+          <Link to="/news">
             <img src="/img/logos/37x60.png"/>
           </Link>
         </div>
         <div className="header-menu-button-mobile">
-          <IconButton onClick={() => setOpen(true)}>
+          <IconButton onClick={toggleDrawer(true)}>
             <MenuIcon className="utils-color-white"/>
           </IconButton>
         </div>
@@ -55,27 +53,29 @@ export default function Header() {
           <LanguageSelector/>
         </div>
       </header>
-      <Drawer className="drawer" variant="persistent" anchor="left" open={open} classes={{ paper: classes.drawerPaper }}>
+      <SwipeableDrawer className="drawer" anchor="left" open={open} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
         <div className="drawer-header">
-          <IconButton onClick={() => setOpen(false)}>
+          <IconButton onClick={toggleDrawer(false)}>
             <ChevronLeftIcon className="utils-color-white"/>
           </IconButton>
         </div>
-        <List>
-          {listItems.map((listItem, index) => (
-            <div key={index}>
-              <div className="list-item">
-                <Link to={listItem.path} onClick={() => setOpen(false)}>
-                  <ListItem button>
-                    <ListItemText>{t(listItem.title).toUpperCase()}</ListItemText>
-                  </ListItem>
-                </Link>
+        <div className="drawer-list-container">
+          <List>
+            {listItems.map((listItem, index) => (
+              <div key={index}>
+                <div className="list-item">
+                  <Link to={listItem.path} onClick={toggleDrawer(false)}>
+                    <ListItem button>
+                      <ListItemText>{t(listItem.title).toUpperCase()}</ListItemText>
+                    </ListItem>
+                  </Link>
+                </div>
+                <Divider/>
               </div>
-              <Divider/>
-            </div>
-          ))}
-        </List>
-      </Drawer>
+            ))}
+          </List>
+        </div>
+      </SwipeableDrawer>
     </div>
   );
 };
