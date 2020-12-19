@@ -13,7 +13,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
   if (page.path.includes('/teams/team')) {
     deletePage(oldPage);
-    for (let teamId of [1, 2]) {
+    for (let teamId of [1, 2, 3]) {
       page.path = `${baseUrl}/teams/${teamId}`;
       page.matchPath = `${baseUrl}/teams/${teamId}`;
       createPage({

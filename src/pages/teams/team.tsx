@@ -86,7 +86,10 @@ export default function TeamPage({ data }: TeamPageProps) {
 
 export const pageQuery = graphql`
   query getTeamMembersById($teamId: Int!) {
-    allMarkdownRemark(filter: { frontmatter: { teamId: { eq: $teamId } } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { teamId: { eq: $teamId } } },
+      sort: { fields: [frontmatter___firstName], order: ASC }
+    ) {
       nodes {
         frontmatter {
           firstName,

@@ -60,7 +60,7 @@ collections:
     name: firstTeamMember
     label: First Team Member
     folder: content/teams/1
-    media_folder: /../../../static/img/teams/1
+    media_folder: /../../../img/teams/1
     create: true
     slug: "{{id}}"
     editor:
@@ -102,7 +102,7 @@ collections:
     name: secondTeamMember
     label: Second Team Member
     folder: content/teams/2
-    media_folder: /../../../static//img/teams/2
+    media_folder: /../../../img/teams/2
     create: true
     slug: "{{id}}"
     editor:
@@ -118,6 +118,45 @@ collections:
         required: true
         widget: hidden
         default: 2
+      - 
+        name: firstName 
+        label: First Name
+        widget: string
+      - 
+        name: lastName 
+        label: Last Name
+        widget: string
+      - 
+        name: position
+        label: Position
+        required: true
+        widget: select
+        options: ["goalkeeper", "defender", "midfielder", "forward", "manager"]
+      - 
+        name: image
+        label: Image 
+        widget: image
+        default: "/img/default.png"
+  - 
+    name: thirdTeamMember
+    label: Third Team Member
+    folder: content/teams/3
+    media_folder: /../../../img/teams/3
+    create: true
+    slug: "{{id}}"
+    editor:
+      preview: false
+    fields:
+      - 
+        name: id
+        label: ID
+        widget: ncw-id
+      -
+        name: teamId
+        label: Team
+        required: true
+        widget: hidden
+        default: 3
       - 
         name: firstName 
         label: First Name
