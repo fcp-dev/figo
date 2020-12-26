@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Grid, Typography } from '@material-ui/core';
+import { Divider, Grid, Typography } from '@material-ui/core';
 import Layout from '../../components/layout';
 import TeamMember from '../../components/team-member-item';
 import '../../styles/team.scss';
@@ -63,6 +63,7 @@ export default function TeamPage({ data }: TeamPageProps) {
     memberList.push(
       <div key={key}>
         <Typography variant="h2" className="group-name-heading">{t(groupName).toUpperCase()}</Typography>
+        <Divider/>
         <div className="utils-margin-bottom-20"></div>
         <Grid container spacing={2}>
           {members.map((member, index) => 

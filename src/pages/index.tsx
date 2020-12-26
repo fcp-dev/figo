@@ -1,8 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Grid } from '@material-ui/core';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import { Divider, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 import NewsItem from '../components/news-item';
+import '../styles/start.scss';
 
 interface INode {
   fields: {
@@ -15,7 +17,7 @@ interface INode {
   }
 };
 
-type NewsOverviewPageProps = {
+type StartPageProps = {
   data: {
     allMarkdownRemark: {
       nodes: Array<INode>
@@ -23,11 +25,23 @@ type NewsOverviewPageProps = {
   }
 };
 
-export default function NewsOverviewPage({ data }: NewsOverviewPageProps) {
+export default function StartPage({ data }: StartPageProps) {
   const newsList: Array<INode> = data.allMarkdownRemark.nodes;
+
+  const { t } = useI18next();
 
   return (
     <Layout>
+      <div className="welcome-container">
+        <div className="welcome-content">
+          <Typography variant="h4">
+            <div dangerouslySetInnerHTML={{__html: t("welcomeText", {interpolation: {escapeValue: false}})}} />
+          </Typography>
+        </div>
+      </div>
+      <div className="separator">
+        <Typography variant="h6">{t("news")}</Typography>
+      </div>
       <Grid container>
         {newsList.map((news, index) => (
           <Grid item xs={12} key={index}>

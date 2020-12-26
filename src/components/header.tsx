@@ -9,16 +9,13 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <Link to="/news" className="utils-align-center">
+        <Link to="/" className="utils-align-center">
           <img src="/img/logos/37x60.png"/>
         </Link>
       </div>
       <div className="header-divider"></div>
       <div className="header-nav-menu">
           <ul>
-            <li>
-              <Link to="/news" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("news")}</Link>
-            </li>
             <li>
               <Link to="/teams" className="nav-item utils-color-white" activeClassName="selected-nav-item" partiallyActive={true}>{t("teams")}</Link>
             </li>

@@ -1,0 +1,27 @@
+.separator {
+  margin-top: 30px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	&::before {
+		content: '';
+		flex: 1;
+		border-bottom: 1px solid #fc4f4f;
+		margin-right: 10px;
+	}
+	&::after {
+		content: '';
+		flex: 1;
+		border-bottom: 1px solid #fc4f4f;
+		margin-left: 10px;
+	}
+}
+
+.welcome-content {
+  display: inline-block;
+}
+
+.welcome-container {
+  text-align: center;
+  width: 100%;
+}

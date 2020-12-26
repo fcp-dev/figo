@@ -12,7 +12,7 @@ interface IListItem {
 }
 
 const listItems: Array<IListItem> = [
-  {path: '/news', title: 'news'},
+  {path: '/', title: 'start'},
   {path: '/teams', title: 'teams'},
   {path: '/club', title: 'club'},
   {path: '/stadium', title: 'stadium'},
@@ -38,7 +38,7 @@ export default function Header() {
     <div>
       <header className="header">
         <div className="header-logo-mobile">
-          <Link to="/news">
+          <Link to="/">
             <img src="/img/logos/37x60.png"/>
           </Link>
         </div>

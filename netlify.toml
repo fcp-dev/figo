@@ -1,9 +1,3 @@
 [build.environment]
   NODE_VERSION = "14.8.0"
   NPM_VERSION = "6.14.8"
-
-[[redirects]]
-  from = "/"
-  to = "/news"
-  status = 200
-  force = true
