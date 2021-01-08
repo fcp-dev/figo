@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Divider, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 import NewsItem from '../components/news-item';
 import '../styles/start.scss';

@@ -16,6 +16,7 @@ const listItems: Array<IListItem> = [
   {path: '/teams', title: 'teams'},
   {path: '/club', title: 'club'},
   {path: '/stadium', title: 'stadium'},
+  {path: '/sponsors', title: 'sponsors'},
   {path: '/legal-notice', title: 'legalNotice'},
   {path: '/contact', title: 'contact'}
 ];

@@ -25,6 +25,9 @@ export default function Header() {
             <li>
               <Link to="/stadium" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("stadium")}</Link>
             </li>
+            <li>
+              <Link to="/sponsors" className="nav-item utils-color-white" activeClassName="selected-nav-item">{t("sponsors")}</Link>
+            </li>
           </ul>
       </div>
       <div className="header-language-selector">

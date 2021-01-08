@@ -176,3 +176,28 @@ collections:
         label: Image 
         widget: image
         default: "/img/default.png"
+  - 
+    name: sponsor
+    label: Sponsor
+    folder: content/sponsors
+    media_folder: static/img/sponsors
+    create: true
+    slug: "{{name}}"
+    editor:
+      preview: false
+    fields:
+      - 
+        name: name
+        label: Name
+        required: true
+        widget: string
+      - 
+        name: link 
+        label: Link
+        required: true
+        widget: string
+      - 
+        name: image
+        label: Image 
+        required: true
+        widget: image
