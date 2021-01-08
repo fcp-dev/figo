@@ -1,7 +1,17 @@
-.paper {
-  padding: 6px 16px;
+.accordion {
+  width: 100%;
 }
 
-.timeline-year {
-  flex: 0 !important;
+.accordion-summary {
+  background-color: #efefef;
+}
+
+.history-image-container {
+  display: flex;
+  img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+  }
 }
