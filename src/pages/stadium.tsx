@@ -33,12 +33,12 @@ export default function StadiumPage() {
             <Typography component="p">79108 Freiburg im Breisgau</Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box fontWeight="fontWeightBold">{t("publicTransportProvider")}</Box>
-            <Typography component="p">{t("publicTransportProviderText")}</Typography>
+            <Box fontWeight="fontWeightBold">{t("car")}</Box>
+            <Typography component="p" dangerouslySetInnerHTML={{__html: t("carText", {interpolation: {escapeValue: false}})}}/>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box fontWeight="fontWeightBold">{t("car")}</Box>
-            <Typography component="p">{t("carText")}</Typography>
+            <Box fontWeight="fontWeightBold">{t("publicTransportProvider")}</Box>
+            <Typography component="p">{t("publicTransportProviderText")}</Typography>
           </Grid>
         </Grid>
       </div>
