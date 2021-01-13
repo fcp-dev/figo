@@ -23,6 +23,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Helmet>
         <title>{t("fullClubName")}</title>
+        <script type="text/javascript" src="https://www.fupa.net/fupa/widget/fupa_widget.js"></script>
       </Helmet>
       <ThemeProvider theme={theme}>
         <div className="page-container">

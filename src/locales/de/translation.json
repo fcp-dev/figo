@@ -72,6 +72,12 @@
     "2019": "Die 1.Mannschaft erreicht den 12.Platz in der Kreisliga B Staffel II, die 2.Mannschaft wird 15.<br><br>Nach der Saison kehrt der FCP zum Solvay Sportpark in Freiburg zurück.",
     "2020": "Nach dem letzten Spiel am 8. März 2020 hat der Verband die Spielsaison aufgrund der Corona-Pandemie für abgeschlossen erklärt."
   },
+  "at": "auf",
   "until": "bis",
-  "today": "heute"
+  "today": "heute",
+  "players": "Spieler",
+  "table": "Tabelle",
+  "noTableFound": "Keine Tabelle gefunden!",
+  "matches": "Spielplan",
+  "noMatchesFound": "Keine Spiele gefunden!"
 }
