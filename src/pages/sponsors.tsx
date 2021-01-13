@@ -31,9 +31,7 @@ export default function SponsorsPage({ data }: SponsorsPageProps) {
       {sponsors.map((sponsor, index) => (
         <Grid item key={index}>
           <div className="sponsor-image-container">
-            <a target="_blank" href={sponsor.frontmatter.link}>
-              <img title={sponsor.frontmatter.name} src={sponsor.frontmatter.image}/>
-            </a>
+            <img title={sponsor.frontmatter.name} src={sponsor.frontmatter.image}/>
           </div>
         </Grid>
       ))}
