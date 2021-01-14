@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Paper, Tab, Tabs } from '@material-ui/core';
-import FupaWidget from '../../components/fupa-widget';
+import FootballWidget from '../../components/football-widget';
 import Layout from '../../components/layout';
 import TabPanel from '../../components/tab-panel';
 import TeamMemberList from '../../components/team-member-list';
@@ -40,23 +40,27 @@ export default function TeamPage({ data, pageContext }: TeamPageProps) {
     setValue(newValue);
   };
 
-  let externalId: number | null;
+  let matchesWidgetId : string = '';
+  let tableWidgetId: string = '';
   switch(pageContext.teamId) {
     case 1:
-      externalId = 860132;
+      tableWidgetId = '02D921TJE8000000VUM1DNOCVUJK772V';
+      matchesWidgetId = '02D9BOH43K000000VUM1DNOAVS6TOAL6';
       break;
     case 2:
-      externalId = 860320;
+      tableWidgetId = '02D9BMKRKK000000VUM1DNOCVUJK772V';
+      matchesWidgetId = '02D9BOSE38000000VUM1DNOOVSR8K0D7';
       break;
-    default:
-      externalId = null;
+    case 3:
+      tableWidgetId = '02D9BNCIJK000000VUM1DNOOVSR8K0D7';
+      matchesWidgetId = '02D9BP0HAG000000VUM1DNOOVSR8K0D7';
       break;
   }
 
   return (
     <Layout>
       <Paper className={isMobile() ? 'tabs-mobile' : 'tabs'}>
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange} TabIndicatorProps={{style: {background:'none'}}}>
           <Tab className="tab" label={t("players")}/>
           <Tab className="tab" label={t("matches")}/>
           <Tab className="tab" label={t("table")}/>
@@ -67,11 +71,11 @@ export default function TeamPage({ data, pageContext }: TeamPageProps) {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div className="utils-margin-bottom-20"></div>
-        {externalId === null ? (<div>{t("noMatchesFound")}</div>) : (<FupaWidget id={externalId} type="spielplan"/>)}
+        <FootballWidget id={matchesWidgetId} name="widget1"/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <div className="utils-margin-bottom-20"></div>
-        {externalId === null ? (<div>{t("noTableFound")}</div>) : (<FupaWidget id={externalId} type="tabelle"/>)}
+        <FootballWidget id={tableWidgetId} name="widget1"/>
       </TabPanel>
     </Layout>
   );
